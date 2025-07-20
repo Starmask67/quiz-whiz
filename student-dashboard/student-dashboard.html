@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="student-dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Student Dashboard</h1>
+        </header>
+        <main>
+            <div class="dashboard-view" id="student-view">
+                <div class="student-info">
+                    <h2>Welcome, <span id="student-name"></span>!</h2>
+                    <p>Admission Number: <span id="student-admission-no"></span></p>
+                </div>
+                <div class="performance-metrics">
+                    <h3>Overall Performance</h3>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <h4>Average Score</h4>
+                            <p id="average-score"></p>
+                        </div>
+                        <div class="metric-card">
+                            <h4>Total Quizzes Taken</h4>
+                            <p id="total-quizzes"></p>
+                        </div>
+                        <div class="metric-card">
+                            <h4>Rank</h4>
+                            <p id="student-rank"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <ul id="recent-quizzes"></ul>
+                </div>
+                <div class="performance-trends">
+                    <h3>Performance Trends</h3>
+                    <canvas id="performance-chart"></canvas>
+                </div>
+                <div class="subject-breakdown">
+                    <h3>Subject Breakdown</h3>
+                    <canvas id="subject-chart"></canvas>
+                </div>
+            </div>
+            <div class="dashboard-view" id="teacher-admin-view">
+                <form id="student-search-form">
+                    <h3>View Student Dashboard</h3>
+                    <input type="text" id="search-admission-no" placeholder="Enter Student Admission Number" required>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="student-dashboard.js"></script>
+</body>
+</html>
