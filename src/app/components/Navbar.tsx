@@ -38,10 +38,23 @@ export default function Navbar() {
                 Teacher
               </Link>
             </li>
+            
             <li className="nav-item">
-              <Link href="/system-control" className={`nav-link ${pathname?.startsWith('/system-control') ? 'active' : ''}`}>
+              <Link href="/student-dashboard" className={`nav-link ${pathname?.startsWith('/student-dashboard') ? 'active' : ''}`}>
+                <Icon name="dashboard" />
+                Student Dashboard
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link href="/settings" className={`nav-link ${pathname?.startsWith('/settings') ? 'active' : ''}`}>
                 <Icon name="settings" />
-                System
+                Settings
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link href="/contact" className={`nav-link ${pathname?.startsWith('/contact') ? 'active' : ''}`}>
+                <Icon name="contact_mail" />
+                Contact Us
               </Link>
             </li>
           </ul>
