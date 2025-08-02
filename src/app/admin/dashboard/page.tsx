@@ -52,29 +52,49 @@ export default function AdminDashboard() {
 
   return (
     <div className="container-fluid">
-      <div className="row">
+      <div style={{ display: 'flex', minHeight: '100vh' }}>
         {/* Sidebar Navigation */}
-        <nav className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse vh-100">
-          <div className="position-sticky pt-3">
-            <ul className="nav flex-column">
-              <li className="nav-item">
-                <a className={`nav-link ${activeTab === 'pdfUpload' ? 'active' : ''}`} href="#" onClick={() => setActiveTab('pdfUpload')}>
+        <nav className="sidebar" style={{ width: '250px', flexShrink: 0 }}>
+          <div style={{ padding: '1.5rem 0' }}>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+              <li>
+                <a 
+                  className={`nav-link ${activeTab === 'pdfUpload' ? 'active' : ''}`} 
+                  href="#" 
+                  onClick={(e) => { e.preventDefault(); setActiveTab('pdfUpload'); }}
+                  style={{ display: 'block', padding: '0.75rem 1rem', margin: '0.25rem 1rem', borderRadius: '0.5rem', textDecoration: 'none', color: activeTab === 'pdfUpload' ? 'var(--primary-600)' : 'var(--gray-600)', backgroundColor: activeTab === 'pdfUpload' ? 'var(--primary-50)' : 'transparent' }}
+                >
                   PDF Upload
                 </a>
               </li>
-              <li className="nav-item">
-                <a className={`nav-link ${activeTab === 'userManagement' ? 'active' : ''}`} href="#" onClick={() => setActiveTab('userManagement')}>
+              <li>
+                <a 
+                  className={`nav-link ${activeTab === 'userManagement' ? 'active' : ''}`} 
+                  href="#" 
+                  onClick={(e) => { e.preventDefault(); setActiveTab('userManagement'); }}
+                  style={{ display: 'block', padding: '0.75rem 1rem', margin: '0.25rem 1rem', borderRadius: '0.5rem', textDecoration: 'none', color: activeTab === 'userManagement' ? 'var(--primary-600)' : 'var(--gray-600)', backgroundColor: activeTab === 'userManagement' ? 'var(--primary-50)' : 'transparent' }}
+                >
                   User Management
                 </a>
               </li>
-              <li className="nav-item">
-                <a className={`nav-link ${activeTab === 'classManagement' ? 'active' : ''}`} href="#" onClick={() => setActiveTab('classManagement')}>
+              <li>
+                <a 
+                  className={`nav-link ${activeTab === 'classManagement' ? 'active' : ''}`} 
+                  href="#" 
+                  onClick={(e) => { e.preventDefault(); setActiveTab('classManagement'); }}
+                  style={{ display: 'block', padding: '0.75rem 1rem', margin: '0.25rem 1rem', borderRadius: '0.5rem', textDecoration: 'none', color: activeTab === 'classManagement' ? 'var(--primary-600)' : 'var(--gray-600)', backgroundColor: activeTab === 'classManagement' ? 'var(--primary-50)' : 'transparent' }}
+                >
                   Class & School Management
                 </a>
               </li>
               
-              <li className="nav-item">
-                <a className={`nav-link ${activeTab === 'analyticsReporting' ? 'active' : ''}`} href="#" onClick={() => setActiveTab('analyticsReporting')}>
+              <li>
+                <a 
+                  className={`nav-link ${activeTab === 'analyticsReporting' ? 'active' : ''}`} 
+                  href="#" 
+                  onClick={(e) => { e.preventDefault(); setActiveTab('analyticsReporting'); }}
+                  style={{ display: 'block', padding: '0.75rem 1rem', margin: '0.25rem 1rem', borderRadius: '0.5rem', textDecoration: 'none', color: activeTab === 'analyticsReporting' ? 'var(--primary-600)' : 'var(--gray-600)', backgroundColor: activeTab === 'analyticsReporting' ? 'var(--primary-50)' : 'transparent' }}
+                >
                   Analytics & Reporting
                 </a>
               </li>
@@ -84,7 +104,7 @@ export default function AdminDashboard() {
         </nav>
 
         {/* Main Content */}
-        <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+        <main style={{ flex: 1, padding: '2rem' }}>
           <h1 className="mb-4">Admin Dashboard</h1>
           {renderContent()}
         </main>

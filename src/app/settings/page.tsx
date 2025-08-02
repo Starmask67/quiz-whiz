@@ -116,8 +116,8 @@ export default function SettingsPage() {
     }
 
     return (
-        <div className="container mt-4">
-            <h1>Settings</h1>
+        <div className="container" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
+            <h1 style={{ marginBottom: '2rem' }}>Settings</h1>
 
             {message.text && (
                 <div className={`alert alert-${message.type}`} role="alert">
@@ -126,8 +126,8 @@ export default function SettingsPage() {
             )}
 
             {/* Profile Settings */}
-            <section className="card mb-4">
-                <div className="card-header">Profile Settings</div>
+            <section className="card" style={{ marginBottom: '1.5rem' }}>
+                <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid var(--gray-200)', fontWeight: '600', color: 'var(--gray-700)' }}>Profile Settings</div>
                 <div className="card-body">
                     <div className="mb-3">
                         <label htmlFor="name" className="form-label">Name</label>
@@ -145,19 +145,25 @@ export default function SettingsPage() {
             </section>
 
             {/* Notification Preferences */}
-            <section className="card mb-4">
-                <div className="card-header">Notification Preferences</div>
+            <section className="card" style={{ marginBottom: '1.5rem' }}>
+                <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid var(--gray-200)', fontWeight: '600', color: 'var(--gray-700)' }}>Notification Preferences</div>
                 <div className="card-body">
-                    <div className="form-check form-switch">
-                        <input className="form-check-input" type="checkbox" id="whatsappNotifications" checked={whatsappNotifications} onChange={(e) => setWhatsappNotifications(e.target.checked)} />
-                        <label className="form-check-label" htmlFor="whatsappNotifications">Receive WhatsApp Notifications</label>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                        <input 
+                            type="checkbox" 
+                            id="whatsappNotifications" 
+                            checked={whatsappNotifications} 
+                            onChange={(e) => setWhatsappNotifications(e.target.checked)}
+                            style={{ width: '1.25rem', height: '1.25rem' }}
+                        />
+                        <label htmlFor="whatsappNotifications" style={{ margin: 0 }}>Receive WhatsApp Notifications</label>
                     </div>
                 </div>
             </section>
 
             {/* Privacy Settings */}
-            <section className="card mb-4">
-                <div className="card-header">Privacy Settings</div>
+            <section className="card" style={{ marginBottom: '1.5rem' }}>
+                <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid var(--gray-200)', fontWeight: '600', color: 'var(--gray-700)' }}>Privacy Settings</div>
                 <div className="card-body">
                     <div className="mb-3">
                         <label htmlFor="dataVisibility" className="form-label">Data Visibility</label>
@@ -172,8 +178,8 @@ export default function SettingsPage() {
 
             {/* Quiz Management Settings (Teacher/Admin) */}
             {(user.role === 'teacher' || user.role === 'admin') && (
-                <section className="card mb-4">
-                    <div className="card-header">Quiz Management Settings</div>
+                <section className="card" style={{ marginBottom: '1.5rem' }}>
+                    <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid var(--gray-200)', fontWeight: '600', color: 'var(--gray-700)' }}>Quiz Management Settings</div>
                     <div className="card-body">
                         <div className="mb-3">
                             <label htmlFor="timeLimit" className="form-label">Default Time Limit (minutes)</label>
@@ -193,8 +199,8 @@ export default function SettingsPage() {
 
             {/* User Management (Admin/Teacher) */}
             {(user.role === 'admin' || user.role === 'teacher') && (
-                <section className="card mb-4">
-                    <div className="card-header">User Management</div>
+                <section className="card" style={{ marginBottom: '1.5rem' }}>
+                    <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid var(--gray-200)', fontWeight: '600', color: 'var(--gray-700)' }}>User Management</div>
                     <div className="card-body">
                         {user.role === 'admin' && (
                             <div className="mb-3">
@@ -212,8 +218,8 @@ export default function SettingsPage() {
 
             {/* Reporting & Analytics Preferences (Teacher/Admin) */}
             {(user.role === 'teacher' || user.role === 'admin') && (
-                <section className="card mb-4">
-                    <div className="card-header">Reporting & Analytics Preferences</div>
+                <section className="card" style={{ marginBottom: '1.5rem' }}>
+                    <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid var(--gray-200)', fontWeight: '600', color: 'var(--gray-700)' }}>Reporting & Analytics Preferences</div>
                     <div className="card-body">
                         <div className="mb-3">
                             <label htmlFor="defaultReportFilters" className="form-label">Default Report Filters</label>
@@ -235,8 +241,8 @@ export default function SettingsPage() {
             )}
 
             {/* Theme/Appearance */}
-            <section className="card mb-4">
-                <div className="card-header">Theme and Appearance</div>
+            <section className="card" style={{ marginBottom: '1.5rem' }}>
+                <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid var(--gray-200)', fontWeight: '600', color: 'var(--gray-700)' }}>Theme and Appearance</div>
                 <div className="card-body">
                     <div className="mb-3">
                         <label htmlFor="theme" className="form-label">Theme</label>

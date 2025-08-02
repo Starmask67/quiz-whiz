@@ -2,7 +2,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Chart from 'chart.js/auto';
 
 // Placeholder for authentication context/hook
 const useAuth = () => {
@@ -59,84 +58,23 @@ export default function StudentDashboardPage() {
         }
     }, [user]);
 
-    useEffect(() => {
-        if (studentData) {
-            // Destroy existing charts before re-rendering
-            const existingCharts = Chart.getChart('performance-chart');
-            if (existingCharts) existingCharts.destroy();
-            const existingSubjectCharts = Chart.getChart('subject-chart');
-            if (existingSubjectCharts) existingSubjectCharts.destroy();
-
-            // Render Performance Chart
-            const performanceChartCtx = document.getElementById('performance-chart') as HTMLCanvasElement;
-            if (performanceChartCtx) {
-                new Chart(performanceChartCtx.getContext('2d')!, {
-                    type: 'line',
-                    data: {
-                        labels: ['Quiz 1', 'Quiz 2', 'Quiz 3', 'Quiz 4', 'Quiz 5'],
-                        datasets: [{
-                            label: 'Score',
-                            data: studentData.performanceData,
-                            borderColor: 'rgba(75, 192, 192, 1)',
-                            borderWidth: 1,
-                            fill: false,
-                        }]
-                    },
-                });
-            }
-
-            // Render Subject Breakdown Chart
-            const subjectChartCtx = document.getElementById('subject-chart') as HTMLCanvasElement;
-            if (subjectChartCtx) {
-                new Chart(subjectChartCtx.getContext('2d')!, {
-                    type: 'bar',
-                    data: {
-                        labels: studentData.subjectData.labels,
-                        datasets: [{
-                            label: 'Average Score',
-                            data: studentData.subjectData.scores,
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                            ],
-                            borderColor: [
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                });
-            }
-        }
-    }, [studentData]);
-
     const handleSearchSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         fetchStudentData(admissionNo);
     };
 
     if (!user) {
-        return <div>Loading authentication...</div>; // Or a loading spinner
+        return <div className="loading">Loading authentication...</div>;
     }
 
     return (
         <div className="container">
-            <header>
-                <h1>Student Dashboard</h1>
-            </header>
-            <main>
+            <div className="dashboard-view">
                 {user.role === 'student' && studentData && (
-                    <div className="dashboard-view">
+                    <>
                         <div className="student-info">
-                            <h2>Welcome, <span>{studentData.name}</span>!</h2>
-                            <p>Admission Number: <span>{studentData.admissionNo}</span></p>
+                            <h2>Welcome, <span style={{ color: 'var(--primary-600)' }}>{studentData.name}</span>!</h2>
+                            <p>Admission Number: <span style={{ fontWeight: '600' }}>{studentData.admissionNo}</span></p>
                         </div>
                         <div className="performance-metrics">
                             <h3>Overall Performance</h3>
@@ -159,40 +97,118 @@ export default function StudentDashboardPage() {
                             <h3>Recent Activity</h3>
                             <ul>
                                 {studentData.recentQuizzes.map((quiz: any, index: number) => (
-                                    <li key={index}>{quiz.name} - Score: {quiz.score}</li>
+                                    <li key={index}>
+                                        <span style={{ fontWeight: '500' }}>{quiz.name}</span>
+                                        <span style={{ color: 'var(--primary-600)', fontWeight: '600' }}>Score: {quiz.score}</span>
+                                    </li>
                                 ))}
                             </ul>
                         </div>
                         <div className="performance-trends">
                             <h3>Performance Trends</h3>
-                            <canvas id="performance-chart"></canvas>
+                            <div style={{ 
+                                background: 'linear-gradient(135deg, var(--primary-50) 0%, var(--primary-100) 100%)', 
+                                padding: '2rem', 
+                                borderRadius: '0.75rem',
+                                textAlign: 'center'
+                            }}>
+                                <p style={{ color: 'var(--gray-600)', marginBottom: '1rem' }}>Performance visualization would be displayed here</p>
+                                <div style={{ 
+                                    display: 'flex', 
+                                    justifyContent: 'space-around', 
+                                    alignItems: 'flex-end', 
+                                    height: '200px',
+                                    maxWidth: '400px',
+                                    margin: '0 auto'
+                                }}>
+                                    {studentData.performanceData.map((score: number, index: number) => (
+                                        <div key={index} style={{
+                                            width: '40px',
+                                            height: `${(score / 100) * 180}px`,
+                                            backgroundColor: 'var(--primary-500)',
+                                            borderRadius: '4px',
+                                            display: 'flex',
+                                            alignItems: 'flex-end',
+                                            justifyContent: 'center',
+                                            color: 'white',
+                                            fontSize: '0.75rem',
+                                            fontWeight: '600'
+                                        }}>
+                                            {score}
+                                        </div>
+                                    ))}
+                                </div>
+                                <div style={{ 
+                                    display: 'flex', 
+                                    justifyContent: 'space-around', 
+                                    marginTop: '1rem',
+                                    maxWidth: '400px',
+                                    margin: '0 auto'
+                                }}>
+                                    {['Quiz 1', 'Quiz 2', 'Quiz 3', 'Quiz 4', 'Quiz 5'].map((label, index) => (
+                                        <span key={index} style={{ fontSize: '0.75rem', color: 'var(--gray-500)' }}>{label}</span>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
                         <div className="subject-breakdown">
                             <h3>Subject Breakdown</h3>
-                            <canvas id="subject-chart"></canvas>
+                            <div style={{ 
+                                background: 'linear-gradient(135deg, var(--success-50) 0%, var(--success-100) 100%)', 
+                                padding: '2rem', 
+                                borderRadius: '0.75rem'
+                            }}>
+                                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+                                    {studentData.subjectData.labels.map((subject: string, index: number) => (
+                                        <div key={index} style={{
+                                            background: 'white',
+                                            padding: '1rem',
+                                            borderRadius: '0.5rem',
+                                            textAlign: 'center',
+                                            boxShadow: 'var(--shadow-sm)'
+                                        }}>
+                                            <h4 style={{ fontSize: '0.875rem', color: 'var(--gray-600)', marginBottom: '0.5rem' }}>{subject}</h4>
+                                            <p style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--success-600)', margin: 0 }}>
+                                                {studentData.subjectData.scores[index]}
+                                            </p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </>
                 )}
 
                 {(user.role === 'teacher' || user.role === 'admin') && (
-                    <div className="dashboard-view">
-                        <form onSubmit={handleSearchSubmit}>
-                            <h3>View Student Dashboard</h3>
-                            <input
-                                type="text"
-                                id="search-admission-no"
-                                placeholder="Enter Student Admission Number"
-                                value={admissionNo}
-                                onChange={(e) => setAdmissionNo(e.target.value)}
-                                required
-                            />
-                            <button type="submit">Search</button>
-                        </form>
+                    <>
+                        <div className="card" style={{ marginBottom: '2rem' }}>
+                            <div className="card-body">
+                                <form onSubmit={handleSearchSubmit}>
+                                    <h3>View Student Dashboard</h3>
+                                    <div style={{ display: 'flex', gap: '1rem', alignItems: 'end' }}>
+                                        <div style={{ flex: 1 }}>
+                                            <label htmlFor="search-admission-no" className="form-label">Student Admission Number</label>
+                                            <input
+                                                type="text"
+                                                id="search-admission-no"
+                                                className="form-control"
+                                                placeholder="Enter Student Admission Number"
+                                                value={admissionNo}
+                                                onChange={(e) => setAdmissionNo(e.target.value)}
+                                                required
+                                            />
+                                        </div>
+                                        <button type="submit" className="btn btn-primary">Search</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
                         {studentData && (
                             <div className="student-search-results">
                                 <div className="student-info">
-                                    <h2>Student: <span>{studentData.name}</span></h2>
-                                    <p>Admission Number: <span>{studentData.admissionNo}</span></p>
+                                    <h2>Student: <span style={{ color: 'var(--primary-600)' }}>{studentData.name}</span></h2>
+                                    <p>Admission Number: <span style={{ fontWeight: '600' }}>{studentData.admissionNo}</span></p>
                                 </div>
                                 <div className="performance-metrics">
                                     <h3>Overall Performance</h3>
@@ -215,23 +231,18 @@ export default function StudentDashboardPage() {
                                     <h3>Recent Activity</h3>
                                     <ul>
                                         {studentData.recentQuizzes.map((quiz: any, index: number) => (
-                                            <li key={index}>{quiz.name} - Score: {quiz.score}</li>
+                                            <li key={index}>
+                                                <span style={{ fontWeight: '500' }}>{quiz.name}</span>
+                                                <span style={{ color: 'var(--primary-600)', fontWeight: '600' }}>Score: {quiz.score}</span>
+                                            </li>
                                         ))}
                                     </ul>
                                 </div>
-                                <div className="performance-trends">
-                                    <h3>Performance Trends</h3>
-                                    <canvas id="performance-chart"></canvas>
-                                </div>
-                                <div className="subject-breakdown">
-                                    <h3>Subject Breakdown</h3>
-                                    <canvas id="subject-chart"></canvas>
-                                </div>
                             </div>
                         )}
-                    </div>
+                    </>
                 )}
-            </main>
+            </div>
         </div>
     );
 }

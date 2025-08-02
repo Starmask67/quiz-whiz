@@ -21,18 +21,28 @@ export default function TeacherDashboard() {
 
   return (
     <div className="container-fluid">
-      <div className="row">
+      <div style={{ display: 'flex', minHeight: '100vh' }}>
         {/* Sidebar Navigation */}
-        <nav className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse vh-100">
-          <div className="position-sticky pt-3">
-            <ul className="nav flex-column">
-              <li className="nav-item">
-                <a className={`nav-link ${activeTab === 'quizGeneration' ? 'active' : ''}`} href="#" onClick={() => setActiveTab('quizGeneration')}>
+        <nav className="sidebar" style={{ width: '250px', flexShrink: 0 }}>
+          <div style={{ padding: '1.5rem 0' }}>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+              <li>
+                <a 
+                  className={`nav-link ${activeTab === 'quizGeneration' ? 'active' : ''}`} 
+                  href="#" 
+                  onClick={(e) => { e.preventDefault(); setActiveTab('quizGeneration'); }}
+                  style={{ display: 'block', padding: '0.75rem 1rem', margin: '0.25rem 1rem', borderRadius: '0.5rem', textDecoration: 'none', color: activeTab === 'quizGeneration' ? 'var(--primary-600)' : 'var(--gray-600)', backgroundColor: activeTab === 'quizGeneration' ? 'var(--primary-50)' : 'transparent' }}
+                >
                   Quiz Generation
                 </a>
               </li>
-              <li className="nav-item">
-                <a className={`nav-link ${activeTab === 'performanceAnalysis' ? 'active' : ''}`} href="#" onClick={() => setActiveTab('performanceAnalysis')}>
+              <li>
+                <a 
+                  className={`nav-link ${activeTab === 'performanceAnalysis' ? 'active' : ''}`} 
+                  href="#" 
+                  onClick={(e) => { e.preventDefault(); setActiveTab('performanceAnalysis'); }}
+                  style={{ display: 'block', padding: '0.75rem 1rem', margin: '0.25rem 1rem', borderRadius: '0.5rem', textDecoration: 'none', color: activeTab === 'performanceAnalysis' ? 'var(--primary-600)' : 'var(--gray-600)', backgroundColor: activeTab === 'performanceAnalysis' ? 'var(--primary-50)' : 'transparent' }}
+                >
                   Performance Analysis
                 </a>
               </li>
@@ -41,7 +51,7 @@ export default function TeacherDashboard() {
         </nav>
 
         {/* Main Content */}
-        <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+        <main style={{ flex: 1, padding: '2rem' }}>
           <h1 className="mb-4">Teacher Dashboard</h1>
           {renderContent()}
         </main>

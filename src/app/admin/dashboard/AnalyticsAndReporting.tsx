@@ -67,67 +67,63 @@ export default function AnalyticsAndReporting() {
       <h3>Analytics & Reporting</h3>
 
       {/* Overview Cards */}
-      <div className="row mb-4">
-        <div className="col-md-3">
-          <div className="card text-white bg-primary h-100">
-            <div className="card-body">
-              <h5 className="card-title">Total Students</h5>
-              <p className="card-text fs-4">{overview.totalStudents}</p>
-            </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem' }}>
+        <div className="card" style={{ background: 'linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%)', color: 'white' }}>
+          <div className="card-body">
+            <h5 className="card-title">Total Students</h5>
+            <p style={{ fontSize: '2rem', fontWeight: '700', margin: 0 }}>{overview.totalStudents}</p>
           </div>
         </div>
-        <div className="col-md-3">
-          <div className="card text-white bg-info h-100">
-            <div className="card-body">
-              <h5 className="card-title">Quizzes Taken</h5>
-              <p className="card-text fs-4">{overview.quizzesTaken}</p>
-            </div>
+        <div className="card" style={{ background: 'linear-gradient(135deg, var(--primary-400) 0%, var(--primary-500) 100%)', color: 'white' }}>
+          <div className="card-body">
+            <h5 className="card-title">Quizzes Taken</h5>
+            <p style={{ fontSize: '2rem', fontWeight: '700', margin: 0 }}>{overview.quizzesTaken}</p>
           </div>
         </div>
-        <div className="col-md-3">
-          <div className="card text-white bg-success h-100">
-            <div className="card-body">
-              <h5 className="card-title">Average Score</h5>
-              <p className="card-text fs-4">{overview.averageScore}%</p>
-            </div>
+        <div className="card" style={{ background: 'linear-gradient(135deg, var(--success-600) 0%, var(--success-700) 100%)', color: 'white' }}>
+          <div className="card-body">
+            <h5 className="card-title">Average Score</h5>
+            <p style={{ fontSize: '2rem', fontWeight: '700', margin: 0 }}>{overview.averageScore}%</p>
           </div>
         </div>
-        <div className="col-md-3">
-          <div className="card text-white bg-secondary h-100">
-            <div className="card-body">
-              <h5 className="card-title">Total Teachers</h5>
-              <p className="card-text fs-4">{overview.totalTeachers}</p>
-            </div>
+        <div className="card" style={{ background: 'linear-gradient(135deg, var(--gray-600) 0%, var(--gray-700) 100%)', color: 'white' }}>
+          <div className="card-body">
+            <h5 className="card-title">Total Teachers</h5>
+            <p style={{ fontSize: '2rem', fontWeight: '700', margin: 0 }}>{overview.totalTeachers}</p>
           </div>
         </div>
       </div>
 
       {/* Charts */}
-      <div className="row mb-4">
-        <div className="col-md-12">
-            <div className="card">
-                <div className="card-header d-flex justify-content-between align-items-center">
-                    <h5 className="mb-0">Engagement Filters</h5>
-                    <div className="d-flex">
-                        <div className="me-2">
-                            <label htmlFor="classFilter" className="form-label visually-hidden">Class</label>
-                            <select id="classFilter" className="form-select form-select-sm" value={selectedClass} onChange={e => setSelectedClass(e.target.value)}>
-                                {classes.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
-                            </select>
-                        </div>
-                        {/* Division filter can be added here when data supports it */}
+      <div style={{ marginBottom: '1.5rem' }}>
+        <div className="card">
+            <div style={{ 
+              padding: '1rem 1.5rem', 
+              borderBottom: '1px solid var(--gray-200)', 
+              display: 'flex', 
+              justifyContent: 'space-between', 
+              alignItems: 'center' 
+            }}>
+                <h5 style={{ margin: 0 }}>Engagement Filters</h5>
+                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                    <div>
+                        <label htmlFor="classFilter" className="form-label" style={{ fontSize: '0.875rem' }}>Class</label>
+                        <select id="classFilter" className="form-select" style={{ fontSize: '0.875rem' }} value={selectedClass} onChange={e => setSelectedClass(e.target.value)}>
+                            {classes.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
+                        </select>
                     </div>
+                    {/* Division filter can be added here when data supports it */}
                 </div>
-                <div className="card-body">
-                    <ChartPlaceholder title={getChartTitle()} data={engagement.quizzesTaken[selectedClass as keyof typeof engagement.quizzesTaken]} />
-                </div>
+            </div>
+            <div className="card-body">
+                <ChartPlaceholder title={getChartTitle()} data={engagement.quizzesTaken[selectedClass as keyof typeof engagement.quizzesTaken]} />
             </div>
         </div>
       </div>
 
       {/* Data Tables */}
-      <div className="row">
-        <div className="col-md-6">
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '1.5rem' }}>
+        <div>
           <div className="card">
             <div className="card-header">Performance by Class</div>
             <div className="card-body">
@@ -152,7 +148,7 @@ export default function AnalyticsAndReporting() {
             </div>
           </div>
         </div>
-        <div className="col-md-6">
+        <div>
           <div className="card">
             <div className="card-header">Student Leaderboard</div>
             <div className="card-body">

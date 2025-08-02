@@ -22,13 +22,12 @@ export default function SystemControl() {
   };
 
   return (
-    <div className="container py-5">
-      <div className="row justify-content-center">
-        <div className="col-lg-8">
-          <div className="text-center mb-5">
-            <h1 className="display-5 fw-bold">System Control</h1>
-            <p className="lead text-muted">Manage core application settings and configurations. This page is for the system owner only.</p>
-          </div>
+    <div className="container" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
+      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+        <div className="text-center mb-5">
+          <h1 style={{ fontSize: '2.5rem', fontWeight: '700', marginBottom: '1rem' }}>System Control</h1>
+          <p style={{ fontSize: '1.125rem', color: 'var(--gray-600)' }}>Manage core application settings and configurations. This page is for the system owner only.</p>
+        </div>
 
           {/* WhatsApp Bot Configuration */}
           <div className="card mb-4 shadow-sm">
@@ -99,7 +98,7 @@ export default function SystemControl() {
             </div>
           </div>
 
-          <div className="d-grid">
+          <div style={{ display: 'grid' }}>
             <button className="btn btn-primary btn-lg" onClick={handleSaveChanges}>Save All Changes</button>
           </div>
         </div>

@@ -110,12 +110,12 @@ export default function ClassManagement() {
         <div className="card-header">{editingClass ? 'Edit Class' : 'Create New Class'}</div>
         <div className="card-body">
           <form onSubmit={handleCreateOrUpdateClass}>
-            <div className="row mb-3">
-              <div className="col-md-6">
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem', marginBottom: '1rem' }}>
+              <div>
                 <label htmlFor="className" className="form-label">Class Name</label>
                 <input type="text" className="form-control" id="className" placeholder="e.g., Grade 5 - Section A" value={newClassName} onChange={e => setNewClassName(e.target.value)} />
               </div>
-              <div className="col-md-6">
+              <div>
                 <label htmlFor="classTeacher" className="form-label">Assign Teacher</label>
                 <select className="form-select" id="classTeacher" value={assignedTeacherId} onChange={e => setAssignedTeacherId(e.target.value)}>
                   <option value="">Select a Teacher</option>

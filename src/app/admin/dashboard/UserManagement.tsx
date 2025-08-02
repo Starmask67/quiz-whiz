@@ -84,26 +84,28 @@ export default function UserManagement() {
     <div>
       <h3>User Management</h3>
       {/* Add/Edit User Form */}
-      <div className="card mb-4">
-        <div className="card-header">{editingUser ? 'Edit User' : 'Add New User'}</div>
+      <div className="card" style={{ marginBottom: '1.5rem' }}>
+        <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid var(--gray-200)', fontWeight: '600', color: 'var(--gray-700)' }}>
+          {editingUser ? 'Edit User' : 'Add New User'}
+        </div>
         <div className="card-body">
           <form onSubmit={handleFormSubmit}>
-            <div className="row mb-3">
-              <div className="col-md-6">
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem', marginBottom: '1rem' }}>
+              <div>
                 <label htmlFor="name" className="form-label">Full Name</label>
                 <input type="text" className="form-control" id="name" placeholder="Enter full name" value={formState.name || ''} onChange={handleFormChange} required />
               </div>
-              <div className="col-md-6">
+              <div>
                 <label htmlFor="phone" className="form-label">Phone Number</label>
                 <input type="tel" className="form-control" id="phone" placeholder="Enter phone number" value={formState.phone || ''} onChange={handleFormChange} required />
               </div>
             </div>
-            <div className="row mb-3">
-              <div className="col-md-6">
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem', marginBottom: '1rem' }}>
+              <div>
                 <label htmlFor="schoolId" className="form-label">School ID</label>
                 <input type="text" className="form-control" id="schoolId" placeholder="Enter school ID" value={formState.schoolId || ''} onChange={handleFormChange} required />
               </div>
-              <div className="col-md-6">
+              <div>
                 <label htmlFor="role" className="form-label">Role</label>
                 <select className="form-select" id="role" value={formState.role || 'student'} onChange={handleFormChange}>
                   <option value="student">Student</option>
@@ -113,15 +115,15 @@ export default function UserManagement() {
               </div>
             </div>
             {formState.role === 'student' && (
-              <div className="row mb-3">
-                <div className="col-md-6">
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem', marginBottom: '1rem' }}>
+                <div>
                   <label htmlFor="className" className="form-label">Class</label>
                   <select className="form-select" id="className" value={formState.className || ''} onChange={handleFormChange}>
                     <option value="">Select Class</option>
                     {mockClassesForSelect.map(c => <option key={c} value={c}>{c}</option>)}
                   </select>
                 </div>
-                <div className="col-md-6">
+                <div>
                   <label htmlFor="division" className="form-label">Division</label>
                   <select className="form-select" id="division" value={formState.division || ''} onChange={handleFormChange}>
                     <option value="">Select Division</option>
@@ -136,46 +138,72 @@ export default function UserManagement() {
                 <input type="text" className="form-control" id="subject" placeholder="e.g., Mathematics, Science" value={formState.subject || ''} onChange={handleFormChange} />
               </div>
             )}
-            <button type="submit" className="btn btn-success me-2">Save User</button>
-            <button type="button" className="btn btn-secondary" onClick={handleClearForm}>Clear Form</button>
+            <div style={{ display: 'flex', gap: '0.75rem' }}>
+              <button type="submit" className="btn btn-success">Save User</button>
+              <button type="button" className="btn btn-outline-primary" onClick={handleClearForm}>Clear Form</button>
+            </div>
           </form>
         </div>
       </div>
 
       {/* User List Table */}
       <div className="card">
-        <div className="card-header d-flex justify-content-between align-items-center">
+        <div style={{ 
+          padding: '1rem 1.5rem', 
+          borderBottom: '1px solid var(--gray-200)', 
+          fontWeight: '600', 
+          color: 'var(--gray-700)',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }}>
           <span>Existing Users</span>
-          <div>
+          <div style={{ display: 'flex', gap: '0.5rem' }}>
             <input type="file" id="csv-import" style={{ display: 'none' }} accept=".csv" onChange={handleImportCSV} />
-            <button className="btn btn-sm btn-outline-primary me-2" onClick={() => document.getElementById('csv-import')?.click()}>Import Users (CSV)</button>
+            <button className="btn btn-sm btn-outline-primary" onClick={() => document.getElementById('csv-import')?.click()}>Import Users (CSV)</button>
             <button className="btn btn-sm btn-outline-secondary" onClick={handleExportCSV}>Export Users (CSV)</button>
           </div>
         </div>
         <div className="card-body">
-          <div className="table-responsive">
-            <table className="table table-striped table-hover">
+          <div style={{ overflowX: 'auto' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
               <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Role</th>
-                  <th>Class</th>
-                  <th>Division</th>
-                  <th>Phone</th>
-                  <th>Actions</th>
+                <tr style={{ borderBottom: '2px solid var(--gray-200)' }}>
+                  <th style={{ padding: '0.75rem', textAlign: 'left', fontWeight: '600', color: 'var(--gray-700)' }}>Name</th>
+                  <th style={{ padding: '0.75rem', textAlign: 'left', fontWeight: '600', color: 'var(--gray-700)' }}>Role</th>
+                  <th style={{ padding: '0.75rem', textAlign: 'left', fontWeight: '600', color: 'var(--gray-700)' }}>Class</th>
+                  <th style={{ padding: '0.75rem', textAlign: 'left', fontWeight: '600', color: 'var(--gray-700)' }}>Division</th>
+                  <th style={{ padding: '0.75rem', textAlign: 'left', fontWeight: '600', color: 'var(--gray-700)' }}>Phone</th>
+                  <th style={{ padding: '0.75rem', textAlign: 'left', fontWeight: '600', color: 'var(--gray-700)' }}>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                {users.map(user => (
-                  <tr key={user.id}>
-                    <td>{user.name}</td>
-                    <td>{user.role}</td>
-                    <td>{user.role === 'student' ? user.className : 'N/A'}</td>
-                    <td>{user.role === 'student' ? user.division : 'N/A'}</td>
-                    <td>{user.phone}</td>
-                    <td>
-                      <button className="btn btn-sm btn-warning me-2" onClick={() => handleEditClick(user)}>Edit</button>
-                      <button className="btn btn-sm btn-danger">Delete</button>
+                {users.map((user, index) => (
+                  <tr key={user.id} style={{ 
+                    borderBottom: '1px solid var(--gray-100)',
+                    backgroundColor: index % 2 === 0 ? 'white' : 'var(--gray-50)'
+                  }}>
+                    <td style={{ padding: '0.75rem' }}>{user.name}</td>
+                    <td style={{ padding: '0.75rem' }}>
+                      <span style={{
+                        padding: '0.25rem 0.5rem',
+                        borderRadius: '0.25rem',
+                        fontSize: '0.75rem',
+                        fontWeight: '500',
+                        backgroundColor: user.role === 'admin' ? 'var(--error-100)' : user.role === 'teacher' ? 'var(--warning-100)' : 'var(--success-100)',
+                        color: user.role === 'admin' ? 'var(--error-700)' : user.role === 'teacher' ? 'var(--warning-700)' : 'var(--success-700)'
+                      }}>
+                        {user.role}
+                      </span>
+                    </td>
+                    <td style={{ padding: '0.75rem' }}>{user.role === 'student' ? user.className : 'N/A'}</td>
+                    <td style={{ padding: '0.75rem' }}>{user.role === 'student' ? user.division : 'N/A'}</td>
+                    <td style={{ padding: '0.75rem' }}>{user.phone}</td>
+                    <td style={{ padding: '0.75rem' }}>
+                      <div style={{ display: 'flex', gap: '0.5rem' }}>
+                        <button className="btn btn-sm btn-warning" onClick={() => handleEditClick(user)}>Edit</button>
+                        <button className="btn btn-sm btn-danger">Delete</button>
+                      </div>
                     </td>
                   </tr>
                 ))}
