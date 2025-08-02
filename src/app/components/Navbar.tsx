@@ -26,6 +26,12 @@ export default function Navbar() {
         </Link>
         <ul className="navbar-nav">
           <li>
+            <Link href="/" className={`nav-link ${pathname === '/' ? 'active' : ''}`}>
+              <Icon name="home" />
+              Home
+            </Link>
+          </li>
+          <li>
             <Link href="/admin/dashboard" className={`nav-link ${pathname?.startsWith('/admin') ? 'active' : ''}`}>
               <Icon name="admin_panel_settings" />
               Admin

@@ -68,28 +68,52 @@ export default function AnalyticsAndReporting() {
 
       {/* Overview Cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem' }}>
-        <div className="card" style={{ background: 'linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%)', color: 'white' }}>
+        <div className="card" style={{ 
+          background: 'white', 
+          border: '1px solid var(--gray-200)',
+          borderLeft: '4px solid var(--primary-600)',
+          boxShadow: 'var(--shadow-sm)',
+          transition: 'box-shadow var(--transition-normal)'
+        }}>
           <div className="card-body">
-            <h5 className="card-title">Total Students</h5>
-            <p style={{ fontSize: '2rem', fontWeight: '700', margin: 0 }}>{overview.totalStudents}</p>
+            <h5 className="card-title" style={{ color: 'var(--gray-600)', fontSize: '0.875rem', fontWeight: '500', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Total Students</h5>
+            <p style={{ fontSize: '2rem', fontWeight: '700', margin: 0, color: 'var(--primary-600)' }}>{overview.totalStudents}</p>
           </div>
         </div>
-        <div className="card" style={{ background: 'linear-gradient(135deg, var(--primary-400) 0%, var(--primary-500) 100%)', color: 'white' }}>
+        <div className="card" style={{ 
+          background: 'white', 
+          border: '1px solid var(--gray-200)',
+          borderLeft: '4px solid var(--primary-400)',
+          boxShadow: 'var(--shadow-sm)',
+          transition: 'box-shadow var(--transition-normal)'
+        }}>
           <div className="card-body">
-            <h5 className="card-title">Quizzes Taken</h5>
-            <p style={{ fontSize: '2rem', fontWeight: '700', margin: 0 }}>{overview.quizzesTaken}</p>
+            <h5 className="card-title" style={{ color: 'var(--gray-600)', fontSize: '0.875rem', fontWeight: '500', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Quizzes Taken</h5>
+            <p style={{ fontSize: '2rem', fontWeight: '700', margin: 0, color: 'var(--primary-400)' }}>{overview.quizzesTaken}</p>
           </div>
         </div>
-        <div className="card" style={{ background: 'linear-gradient(135deg, var(--success-600) 0%, var(--success-700) 100%)', color: 'white' }}>
+        <div className="card" style={{ 
+          background: 'white', 
+          border: '1px solid var(--gray-200)',
+          borderLeft: '4px solid var(--success-600)',
+          boxShadow: 'var(--shadow-sm)',
+          transition: 'box-shadow var(--transition-normal)'
+        }}>
           <div className="card-body">
-            <h5 className="card-title">Average Score</h5>
-            <p style={{ fontSize: '2rem', fontWeight: '700', margin: 0 }}>{overview.averageScore}%</p>
+            <h5 className="card-title" style={{ color: 'var(--gray-600)', fontSize: '0.875rem', fontWeight: '500', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Average Score</h5>
+            <p style={{ fontSize: '2rem', fontWeight: '700', margin: 0, color: 'var(--success-600)' }}>{overview.averageScore}%</p>
           </div>
         </div>
-        <div className="card" style={{ background: 'linear-gradient(135deg, var(--gray-600) 0%, var(--gray-700) 100%)', color: 'white' }}>
+        <div className="card" style={{ 
+          background: 'white', 
+          border: '1px solid var(--gray-200)',
+          borderLeft: '4px solid var(--gray-600)',
+          boxShadow: 'var(--shadow-sm)',
+          transition: 'box-shadow var(--transition-normal)'
+        }}>
           <div className="card-body">
-            <h5 className="card-title">Total Teachers</h5>
-            <p style={{ fontSize: '2rem', fontWeight: '700', margin: 0 }}>{overview.totalTeachers}</p>
+            <h5 className="card-title" style={{ color: 'var(--gray-600)', fontSize: '0.875rem', fontWeight: '500', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>Total Teachers</h5>
+            <p style={{ fontSize: '2rem', fontWeight: '700', margin: 0, color: 'var(--gray-600)' }}>{overview.totalTeachers}</p>
           </div>
         </div>
       </div>
