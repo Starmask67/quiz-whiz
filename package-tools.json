@@ -1,0 +1,112 @@
+{
+  "name": "quiz-whiz-tools",
+  "version": "1.0.0",
+  "description": "Backend tools and utilities for Quiz Whiz - AI-powered educational quiz platform with Telegram bot integration",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "install-system": "node tools/setup/installer.js",
+    "setup": "npm run install-system",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "db:migrate": "node tools/database/migrate.js",
+    "db:seed": "node tools/database/seed.js",
+    "db:backup": "node tools/maintenance/backup.js",
+    "bot:start": "node tools/bot/start.js",
+    "bot:stop": "node tools/bot/stop.js",
+    "pdf:process": "node tools/ai/processPdfs.js",
+    "analytics:generate": "node tools/analytics/generateReports.js",
+    "users:import": "node tools/management/importUsers.js",
+    "clean": "rm -rf uploads/temp/* logs/* backups/temp/*",
+    "build": "npm run clean && npm run test",
+    "deploy": "npm run build && pm2 start ecosystem.config.js"
+  },
+  "keywords": [
+    "education",
+    "quiz",
+    "telegram-bot",
+    "ai",
+    "gemini",
+    "pdf-processing",
+    "student-management",
+    "analytics"
+  ],
+  "author": "Quiz Whiz Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.6.5",
+    "dotenv": "^16.3.1",
+    "node-telegram-bot-api": "^0.64.0",
+    "@google/generative-ai": "^0.2.1",
+    "pdf-parse": "^1.1.1",
+    "multer": "^1.4.5-lts.1",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.1.5",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "joi": "^17.11.0",
+    "winston": "^3.11.0",
+    "cron": "^3.1.6",
+    "nodemailer": "^6.9.7",
+    "csv-parse": "^5.5.2",
+    "csv-stringify": "^6.4.4",
+    "archiver": "^6.0.1",
+    "moment": "^2.29.4",
+    "uuid": "^9.0.1",
+    "sharp": "^0.33.0",
+    "compression": "^1.7.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3",
+    "eslint": "^8.55.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.4.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "@types/node": "^20.10.4",
+    "pm2": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/quiz-whiz.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/quiz-whiz/issues"
+  },
+  "homepage": "https://github.com/your-username/quiz-whiz#readme",
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "tools/**/*.js",
+      "!tools/**/node_modules/**",
+      "!tools/setup/**"
+    ],
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "standard"
+    ],
+    "env": {
+      "node": true,
+      "jest": true
+    },
+    "rules": {
+      "no-console": "off"
+    }
+  }
+}
