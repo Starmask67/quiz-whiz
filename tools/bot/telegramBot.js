@@ -12,7 +12,7 @@ class QuizWhizBot {
 
     async initializeBot() {
         try {
-            const token = process.env.TELEGRAM_BOT_TOKEN || await this.getBotTokenFromDB();
+            const token = process.env.TELEGRAM_BOT_TOKEN || await this.8050855701:AAH17w76HvcEIsasW27d9zsnASYzz4zGRzw();
             if (!token) {
                 console.warn('⚠️ Telegram Bot Token not found. Bot will not start.');
                 return;
