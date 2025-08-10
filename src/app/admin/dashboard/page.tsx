@@ -5,6 +5,7 @@ import { useState } from 'react';
 import ClassManagement from './ClassManagement';
 import UserManagement from './UserManagement';
 import AnalyticsAndReporting from './AnalyticsAndReporting';
+import BotManagement from './BotManagement';
 
 export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState('pdfUpload');
@@ -44,6 +45,9 @@ export default function AdminDashboard() {
       
       case 'analyticsReporting':
         return <AnalyticsAndReporting />;
+      
+      case 'botManagement':
+        return <BotManagement />;
       
       default:
         return null;
@@ -96,6 +100,17 @@ export default function AdminDashboard() {
                   style={{ display: 'block', padding: '0.75rem 1rem', margin: '0.25rem 1rem', borderRadius: '0.5rem', textDecoration: 'none', color: activeTab === 'analyticsReporting' ? 'var(--primary-600)' : 'var(--gray-600)', backgroundColor: activeTab === 'analyticsReporting' ? 'var(--primary-50)' : 'transparent' }}
                 >
                   Analytics & Reporting
+                </a>
+              </li>
+              
+              <li>
+                <a 
+                  className={`nav-link ${activeTab === 'botManagement' ? 'active' : ''}`} 
+                  href="#" 
+                  onClick={(e) => { e.preventDefault(); setActiveTab('botManagement'); }}
+                  style={{ display: 'block', padding: '0.75rem 1rem', margin: '0.25rem 1rem', borderRadius: '0.5rem', textDecoration: 'none', color: activeTab === 'botManagement' ? 'var(--primary-600)' : 'var(--gray-600)', backgroundColor: activeTab === 'botManagement' ? 'var(--primary-50)' : 'transparent' }}
+                >
+                  Telegram Bot
                 </a>
               </li>
               

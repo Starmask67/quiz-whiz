@@ -1,0 +1,35 @@
+{
+  "name": "quiz-whiz-tools",
+  "version": "1.0.0",
+  "description": "Backend tools for Quiz Whiz including Telegram bot and AI processing",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ../index.js",
+    "test-bot": "node ../test-bot.js",
+    "dev": "nodemon ../index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "compression": "^1.7.4",
+    "express-rate-limit": "^7.1.5",
+    "node-telegram-bot-api": "^0.64.0",
+    "pdf-parse": "^1.1.1",
+    "@google/generative-ai": "^0.2.1",
+    "mysql2": "^3.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "keywords": [
+    "quiz",
+    "education",
+    "telegram-bot",
+    "ai",
+    "pdf-processing"
+  ],
+  "author": "Quiz Whiz Team",
+  "license": "MIT"
+}
