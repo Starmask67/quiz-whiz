@@ -85,7 +85,9 @@ export default function SystemControl() {
             </div>
             <div className="card-body">
               <div className="mb-3">
-                <label htmlFor="defaultQuizQuestions" className="form-label">Default Number of Questions</e.g., 10, 15, 20</label>
+               <label htmlFor="defaultQuizQuestions" className="form-label">
+  Default Number of Questions (e.g., 10, 15, 20)
+</label>
                 <input 
                   type="number" 
                   className="form-control" 
