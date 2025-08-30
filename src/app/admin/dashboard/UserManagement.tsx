@@ -3,8 +3,20 @@
 
 import { useState } from 'react';
 
+// Define a consistent type for all user objects
+type User = {
+  id: string;
+  name: string;
+  phone: string;
+  schoolId: string;
+  role: 'student' | 'teacher' | 'admin';
+  className?: string;
+  division?: string;
+  subject?: string;
+};
+
 // Mock data for demonstration
-const mockUsers = [
+const mockUsers: User[] = [
   { id: 'S001', name: 'John Doe', phone: '+1234567890', schoolId: 'SCH001', role: 'student', className: 'Grade 5', division: 'A' },
   { id: 'S002', name: 'Alice Johnson', phone: '+1122334455', schoolId: 'SCH001', role: 'student', className: 'Grade 5', division: 'B' },
   { id: 'T01', name: 'Jane Smith', phone: '+1987654321', schoolId: 'SCH001', role: 'teacher', subject: 'Physics' },
@@ -15,11 +27,11 @@ const mockClassesForSelect = ['Grade 1', 'Grade 2', 'Grade 3', 'Grade 4', 'Grade
 const mockDivisionsForSelect = ['A', 'B', 'C', 'D'];
 
 export default function UserManagement() {
-  const [users, setUsers] = useState(mockUsers);
-  const [editingUser, setEditingUser] = useState<any>(null);
-  const [formState, setFormState] = useState<any>({ role: 'student' });
+  const [users, setUsers] = useState<User[]>(mockUsers);
+  const [editingUser, setEditingUser] = useState<User | null>(null);
+  const [formState, setFormState] = useState<Partial<User>>({ role: 'student' });
 
-  const handleEditClick = (user: any) => {
+  const handleEditClick = (user: User) => {
     setEditingUser(user);
     setFormState(user);
   };
@@ -32,9 +44,23 @@ export default function UserManagement() {
     e.preventDefault();
     // Logic to save the user (add new or update existing)
     console.log('Saving user:', formState);
+    // In a real app, you would either add a new user or update an existing one in the `users` array.
+    // For example:
+    if (editingUser) {
+      setUsers(users.map(u => u.id === editingUser.id ? { ...u, ...formState } as User : u));
+    } else {
+      const newUser: User = {
+        id: `U${Date.now()}`, // simple unique id
+        ...formState,
+        name: formState.name || '',
+        phone: formState.phone || '',
+        schoolId: formState.schoolId || 'SCH001',
+        role: formState.role || 'student',
+      };
+      setUsers([...users, newUser]);
+    }
     // Reset form after submission
-    setEditingUser(null);
-    setFormState({ role: 'student' });
+    handleClearForm();
   };
 
   const handleClearForm = () => {
@@ -43,17 +69,14 @@ export default function UserManagement() {
   };
 
   const handleExportCSV = () => {
-    const headers = ['id', 'name', 'phone', 'schoolId', 'role', 'className', 'division', 'subject'];
+    const headers: (keyof User)[] = ['id', 'name', 'phone', 'schoolId', 'role', 'className', 'division', 'subject'];
     const csvContent = [
       headers.join(','),
-      ...users.map(user => headers.map(header => user[header as keyof typeof user] || '').join(','))
+      ...users.map(user => headers.map(header => user[header] || '').join(','))
     ].join('\n');
 
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
     const link = document.createElement('a');
-    if (link.href) {
-      URL.revokeObjectURL(link.href);
-    }
     const url = URL.createObjectURL(blob);
     link.href = url;
     link.setAttribute('download', 'users.csv');
@@ -70,9 +93,23 @@ export default function UserManagement() {
     reader.onload = (e) => {
       const text = e.target?.result as string;
       const lines = text.split('\n').slice(1); // Skip header row
-      const newUsers = lines.map(line => {
+      const newUsers: User[] = lines.filter(line => line.trim()).map(line => {
         const [id, name, phone, schoolId, role, className, division, subject] = line.split(',');
-        return { id, name, phone, schoolId, role, className, division, subject };
+        const user: User = { 
+          id, 
+          name, 
+          phone, 
+          schoolId, 
+          role: role as User['role'], 
+          className, 
+          division, 
+          subject 
+        };
+        // Clean up undefined/empty properties
+        if (!user.className) delete user.className;
+        if (!user.division) delete user.division;
+        if (!user.subject) delete user.subject;
+        return user;
       });
       setUsers(prevUsers => [...prevUsers, ...newUsers]);
       alert(`${newUsers.length} users imported successfully!`);
