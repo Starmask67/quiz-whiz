@@ -63,7 +63,7 @@ export default function Navbar() {
             <div className="brand-icon">
               <Icon name="quiz" />
             </div>
-            <span className="brand-text">QuizWhiz</span>
+            <span className="brand-text">Whiz Wizard</span>
           </Link>
         </div>
 
@@ -72,38 +72,27 @@ export default function Navbar() {
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link href="/" className={`nav-link ${pathname === '/' ? 'active' : ''}`}>
-                <Icon name="home" />
                 <span>Home</span>
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/admin/dashboard" className={`nav-link ${pathname?.startsWith('/admin') ? 'active' : ''}`}>
-                <Icon name="admin_panel_settings" />
-                <span>Admin</span>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link href="/teacher/dashboard" className={`nav-link ${pathname?.startsWith('/teacher') ? 'active' : ''}`}>
-                <Icon name="school" />
-                <span>Teacher</span>
-              </Link>
-            </li>
-            <li className="nav-item">
               <Link href="/student-dashboard" className={`nav-link ${pathname?.startsWith('/student-dashboard') ? 'active' : ''}`}>
-                <Icon name="dashboard" />
-                <span>Student</span>
+                <span>Dashboard</span>
               </Link>
             </li>
             <li className="nav-item">
               <Link href="/settings" className={`nav-link ${pathname?.startsWith('/settings') ? 'active' : ''}`}>
-                <Icon name="settings" />
                 <span>Settings</span>
               </Link>
             </li>
             <li className="nav-item">
               <Link href="/contact" className={`nav-link ${pathname?.startsWith('/contact') ? 'active' : ''}`}>
-                <Icon name="contact_mail" />
-                <span>Contact</span>
+                <span>Contact Us</span>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link href="/signup" className="nav-link bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:from-purple-600 hover:to-purple-700 rounded-full px-6 py-2 font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                <span>Get Started</span>
               </Link>
             </li>
           </ul>
@@ -136,38 +125,27 @@ export default function Navbar() {
           <ul className="navbar-mobile-nav-list">
             <li className="nav-item">
               <Link href="/" className={`nav-link ${pathname === '/' ? 'active' : ''}`} onClick={closeMobileMenu}>
-                <Icon name="home" />
                 <span>Home</span>
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/admin/dashboard" className={`nav-link ${pathname?.startsWith('/admin') ? 'active' : ''}`} onClick={closeMobileMenu}>
-                <Icon name="admin_panel_settings" />
-                <span>Admin</span>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link href="/teacher/dashboard" className={`nav-link ${pathname?.startsWith('/teacher') ? 'active' : ''}`} onClick={closeMobileMenu}>
-                <Icon name="school" />
-                <span>Teacher</span>
-              </Link>
-            </li>
-            <li className="nav-item">
               <Link href="/student-dashboard" className={`nav-link ${pathname?.startsWith('/student-dashboard') ? 'active' : ''}`} onClick={closeMobileMenu}>
-                <Icon name="dashboard" />
-                <span>Student</span>
+                <span>Dashboard</span>
               </Link>
             </li>
             <li className="nav-item">
               <Link href="/settings" className={`nav-link ${pathname?.startsWith('/settings') ? 'active' : ''}`} onClick={closeMobileMenu}>
-                <Icon name="settings" />
                 <span>Settings</span>
               </Link>
             </li>
             <li className="nav-item">
               <Link href="/contact" className={`nav-link ${pathname?.startsWith('/contact') ? 'active' : ''}`} onClick={closeMobileMenu}>
-                <Icon name="contact_mail" />
-                <span>Contact</span>
+                <span>Contact Us</span>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link href="/signup" className="nav-link bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:from-purple-600 hover:to-purple-700 rounded-full px-6 py-2 font-semibold shadow-lg hover:shadow-xl transition-all duration-300" onClick={closeMobileMenu}>
+                <span>Get Started</span>
               </Link>
             </li>
           </ul>

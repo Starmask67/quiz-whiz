@@ -3,190 +3,126 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="container d-flex align-items-center justify-content-center min-vh-100 text-center" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
-      <div>
-        <h1 className="mb-4" style={{ color: 'var(--primary-600)', fontSize: '3rem', fontWeight: '700' }}>Quiz Whiz</h1>
-        <p className="mb-5" style={{ maxWidth: '700px', margin: '0 auto', fontSize: '1.125rem', color: 'var(--gray-600)' }}>
-          Empowering education through interactive and accessible learning. Quiz Whiz brings dynamic quizzes directly to students via WhatsApp, making learning engaging, instant, and effective.
-        </p>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      <main className="flex-1">
+        {/* Hero Section */}
+        <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="bg-gradient-to-br from-blue-100 to-purple-100 rounded-3xl p-12 md:p-16 text-center shadow-2xl">
+              <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
+                Learn Smarter, Not Harder
+              </h1>
+              <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Unlock your full potential with AI-powered quizzes on WhatsApp. Fun, engaging, and tailored just for you.
+              </p>
+              <Link 
+                href="/signup" 
+                className="inline-flex items-center justify-center px-8 py-4 bg-white text-gray-800 font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                Start Learning for Free
+              </Link>
+            </div>
+          </div>
+        </section>
 
-        {/* Enhanced Benefits Section */}
-        <div style={{ marginBottom: '3rem' }}>
-          <h2 style={{ color: 'var(--gray-800)', fontSize: '2rem', fontWeight: '600', marginBottom: '2rem', textAlign: 'center' }}>
-            Why Choose Quiz Whiz?
-          </h2>
-          
-          {/* Main Benefits Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginBottom: '3rem', maxWidth: '1200px', margin: '0 auto' }}>
+        {/* Features Section */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white/50">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                How Whiz Wizard Boosts Your Brainpower
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Discover a new way to learn that's effective, convenient, and perfectly fits into your daily routine.
+              </p>
+            </div>
             
-            {/* WhatsApp Integration */}
-            <div className="card" style={{ 
-              background: 'white', 
-              border: '1px solid var(--gray-200)',
-              borderRadius: 'var(--radius-lg)',
-              boxShadow: 'var(--shadow-sm)',
-              transition: 'all var(--transition-normal)',
-              overflow: 'hidden'
-            }}>
-              <div style={{ 
-                background: 'linear-gradient(135deg, var(--success-500) 0%, var(--success-600) 100%)', 
-                padding: '1.5rem',
-                textAlign: 'center',
-                color: 'white'
-              }}>
-                <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>📱</div>
-                <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: '600' }}>WhatsApp Integration</h3>
-              </div>
-              <div className="card-body" style={{ padding: '1.5rem' }}>
-                <p style={{ color: 'var(--gray-600)', marginBottom: '1rem', lineHeight: '1.6' }}>
-                  Meet students where they are! No new apps to install, no complex setups required.
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Personalized Learning Paths */}
+              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+                  Personalized Learning Paths
+                </h3>
+                <p className="text-gray-600 text-center leading-relaxed">
+                  AI adapts to your learning style and pace, creating custom study paths that help you master topics faster and more effectively.
                 </p>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                  <li style={{ display: 'flex', alignItems: 'center', marginBottom: '0.75rem', color: 'var(--gray-700)' }}>
-                    <span style={{ color: 'var(--success-600)', marginRight: '0.75rem', fontSize: '1.2rem' }}>✓</span>
-                    Familiar platform everyone knows
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'center', marginBottom: '0.75rem', color: 'var(--gray-700)' }}>
-                    <span style={{ color: 'var(--success-600)', marginRight: '0.75rem', fontSize: '1.2rem' }}>✓</span>
-                    Instant notifications & delivery
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'center', color: 'var(--gray-700)' }}>
-                    <span style={{ color: 'var(--success-600)', marginRight: '0.75rem', fontSize: '1.2rem' }}>✓</span>
-                    Works on any device
-                  </li>
-                </ul>
               </div>
-            </div>
 
-            {/* Student Benefits */}
-            <div className="card" style={{ 
-              background: 'white', 
-              border: '1px solid var(--gray-200)',
-              borderRadius: 'var(--radius-lg)',
-              boxShadow: 'var(--shadow-sm)',
-              transition: 'all var(--transition-normal)',
-              overflow: 'hidden'
-            }}>
-              <div style={{ 
-                background: 'linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%)', 
-                padding: '1.5rem',
-                textAlign: 'center',
-                color: 'white'
-              }}>
-                <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>🎓</div>
-                <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: '600' }}>Student Benefits</h3>
-              </div>
-              <div className="card-body" style={{ padding: '1.5rem' }}>
-                <p style={{ color: 'var(--gray-600)', marginBottom: '1rem', lineHeight: '1.6' }}>
-                  Transform learning into an engaging, interactive experience that students love.
+              {/* Learn on the Go */}
+              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+                  Learn on the Go
+                </h3>
+                <p className="text-gray-600 text-center leading-relaxed">
+                  Access quizzes anytime, anywhere through WhatsApp. Turn your commute, breaks, or free time into productive learning moments.
                 </p>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                  <li style={{ display: 'flex', alignItems: 'center', marginBottom: '0.75rem', color: 'var(--gray-700)' }}>
-                    <span style={{ color: 'var(--primary-600)', marginRight: '0.75rem', fontSize: '1.2rem' }}>✓</span>
-                    Instant feedback & learning
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'center', marginBottom: '0.75rem', color: 'var(--gray-700)' }}>
-                    <span style={{ color: 'var(--primary-600)', marginRight: '0.75rem', fontSize: '1.2rem' }}>✓</span>
-                    Gamified quiz experience
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'center', marginBottom: '0.75rem', color: 'var(--gray-700)' }}>
-                    <span style={{ color: 'var(--primary-600)', marginRight: '0.75rem', fontSize: '1.2rem' }}>✓</span>
-                    Accessible anytime, anywhere
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'center', color: 'var(--gray-700)' }}>
-                    <span style={{ color: 'var(--primary-600)', marginRight: '0.75rem', fontSize: '1.2rem' }}>✓</span>
-                    Boosts confidence & retention
-                  </li>
-                </ul>
               </div>
-            </div>
 
-            {/* Institution Benefits */}
-            <div className="card" style={{ 
-              background: 'white', 
-              border: '1px solid var(--gray-200)',
-              borderRadius: 'var(--radius-lg)',
-              boxShadow: 'var(--shadow-sm)',
-              transition: 'all var(--transition-normal)',
-              overflow: 'hidden'
-            }}>
-              <div style={{ 
-                background: 'linear-gradient(135deg, var(--warning-500) 0%, var(--warning-600) 100%)', 
-                padding: '1.5rem',
-                textAlign: 'center',
-                color: 'white'
-              }}>
-                <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>🏫</div>
-                <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: '600' }}>For Institutions</h3>
-              </div>
-              <div className="card-body" style={{ padding: '1.5rem' }}>
-                <p style={{ color: 'var(--gray-600)', marginBottom: '1rem', lineHeight: '1.6' }}>
-                  Streamline assessment and track progress with powerful analytics and insights.
+              {/* See Your Progress Soar */}
+              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+                  See Your Progress Soar
+                </h3>
+                <p className="text-gray-600 text-center leading-relaxed">
+                  Track your improvement with detailed analytics and instant feedback. Watch your confidence and grades rise with every quiz.
                 </p>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                  <li style={{ display: 'flex', alignItems: 'center', marginBottom: '0.75rem', color: 'var(--gray-700)' }}>
-                    <span style={{ color: 'var(--warning-600)', marginRight: '0.75rem', fontSize: '1.2rem' }}>✓</span>
-                    Automated assessment system
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'center', marginBottom: '0.75rem', color: 'var(--gray-700)' }}>
-                    <span style={{ color: 'var(--warning-600)', marginRight: '0.75rem', fontSize: '1.2rem' }}>✓</span>
-                    Real-time progress tracking
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'center', marginBottom: '0.75rem', color: 'var(--gray-700)' }}>
-                    <span style={{ color: 'var(--warning-600)', marginRight: '0.75rem', fontSize: '1.2rem' }}>✓</span>
-                    Detailed analytics & reports
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'center', color: 'var(--gray-700)' }}>
-                    <span style={{ color: 'var(--warning-600)', marginRight: '0.75rem', fontSize: '1.2rem' }}>✓</span>
-                    Extend learning beyond classroom
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
+        </section>
 
-          {/* Additional Features Section */}
-          <div style={{ 
-            background: 'linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%)', 
-            padding: '2rem', 
-            borderRadius: 'var(--radius-lg)',
-            textAlign: 'center',
-            maxWidth: '800px',
-            margin: '0 auto'
-          }}>
-            <h3 style={{ color: 'var(--gray-800)', fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem' }}>
-              🚀 Powerful Features
-            </h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
-              <div style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>⚡</div>
-                <h4 style={{ color: 'var(--gray-700)', fontSize: '1rem', fontWeight: '600', margin: '0 0 0.5rem 0' }}>Instant Results</h4>
-                <p style={{ color: 'var(--gray-600)', fontSize: '0.875rem', margin: 0 }}>Get immediate feedback and scores</p>
-              </div>
-              <div style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>📊</div>
-                <h4 style={{ color: 'var(--gray-700)', fontSize: '1rem', fontWeight: '600', margin: '0 0 0.5rem 0' }}>Smart Analytics</h4>
-                <p style={{ color: 'var(--gray-600)', fontSize: '0.875rem', margin: 0 }}>Track progress with detailed insights</p>
-              </div>
-              <div style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🎮</div>
-                <h4 style={{ color: 'var(--gray-700)', fontSize: '1rem', fontWeight: '600', margin: '0 0 0.5rem 0' }}>Gamified Learning</h4>
-                <p style={{ color: 'var(--gray-600)', fontSize: '0.875rem', margin: 0 }}>Make learning fun and engaging</p>
-              </div>
-              <div style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🔒</div>
-                <h4 style={{ color: 'var(--gray-700)', fontSize: '1rem', fontWeight: '600', margin: '0 0 0.5rem 0' }}>Secure & Private</h4>
-                <p style={{ color: 'var(--gray-600)', fontSize: '0.875rem', margin: 0 }}>Your data is safe with us</p>
-              </div>
+        {/* CTA Section */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="bg-gradient-to-br from-green-100 to-emerald-100 rounded-3xl p-12 md:p-16 text-center shadow-2xl">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                Ready to Ace Your Exams?
+              </h2>
+              <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                Join thousands of students who are already improving their grades with Whiz Wizard.
+              </p>
+              <Link 
+                href="/signup" 
+                className="inline-flex items-center justify-center px-8 py-4 bg-white text-gray-800 font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                Sign Up Now
+              </Link>
             </div>
           </div>
-        </div>
+        </section>
+      </main>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '400px', margin: '0 auto' }}>
-          <Link href="/signup" className="btn btn-primary btn-lg">Get Started - Sign Up</Link>
-          <Link href="/login" className="btn btn-outline-primary btn-lg">Already a User? Log In</Link>
+      {/* Footer */}
+      <footer className="bg-white/80 backdrop-blur-sm py-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-500 text-sm mb-4 md:mb-0">
+            © 2024 Whiz Wizard. All rights reserved.
+          </p>
+          <div className="flex space-x-6">
+            <Link href="/contact" className="text-gray-500 hover:text-gray-700 text-sm transition-colors">
+              Privacy
+            </Link>
+            <Link href="/contact" className="text-gray-500 hover:text-gray-700 text-sm transition-colors">
+              Terms
+            </Link>
+          </div>
         </div>
-      </div>
+      </footer>
     </div>
   );
 }

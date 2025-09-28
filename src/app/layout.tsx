@@ -10,8 +10,8 @@ import Navbar from './components/Navbar';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Quiz Whiz",
-  description: "Interactive quizzes via WhatsApp",
+  title: "Whiz Wizard - AI-Powered MCQ Generation",
+  description: "Educational MCQ generation platform that uses AI to create quizzes accessible via WhatsApp bot for students",
 };
 
 export default function RootLayout({
@@ -28,6 +28,12 @@ export default function RootLayout({
         />
         <link
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
           rel="stylesheet"
         />
       </head>

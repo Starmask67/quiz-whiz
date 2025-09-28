@@ -2,6 +2,21 @@
 
 /* CSS Custom Properties for consistent theming */
 :root {
+  /* Clay Design System Variables */
+  --clay-lavender: #e6e0f8;
+  --clay-mint: #d8f3dc;
+  --clay-baby-blue: #d6eaff;
+  --background-color: #f7f9fc;
+  --text-primary: #2d3748;
+  --text-secondary: #5a6b82;
+  --primary-color: #8b94f9;
+  --secondary-color: #a7f3d0;
+  --clay-border-radius: 1.5rem;
+  --clay-shadow-inner: inset 8px 8px 16px #e3e6e9, inset -8px -8px 16px #ffffff;
+  --clay-shadow-outer: 9px 9px 18px #e3e6e9, -9px -9px 18px #ffffff;
+  --neumorphic-button-shadow: 6px 6px 12px #d4d7da, -6px -6px 12px #ffffff;
+  --neumorphic-button-shadow-pressed: inset 6px 6px 12px #d4d7da, inset -6px -6px 12px #ffffff;
+
   /* Primary Color Palette - Professional Blue Theme */
   --primary-50: #eff6ff;
   --primary-100: #dbeafe;
@@ -85,14 +100,127 @@ html {
 }
 
 body {
-  font-family: var(--font-family-sans);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
-  color: var(--gray-800);
-  background-color: var(--gray-50);
+  color: var(--text-primary);
+  background-color: #f8fafc;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Modern gradient backgrounds */
+.gradient-bg {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-bg-light {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.gradient-bg-success {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+/* Enhanced button styles */
+.btn-modern {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-modern:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+  color: white;
+  text-decoration: none;
+}
+
+.btn-modern:active {
+  transform: translateY(0);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Modern shadows */
+.shadow-modern {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-modern-lg {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Clay Design System Styles */
+.clay-element {
+  border-radius: var(--clay-border-radius);
+  box-shadow: var(--clay-shadow-outer);
+  transition: all 0.3s ease-in-out;
+}
+
+.clay-element-inner {
+  border-radius: var(--clay-border-radius);
+  box-shadow: var(--clay-shadow-inner);
+}
+
+.neumorphic-button {
+  border-radius: 50px;
+  background-color: var(--background-color);
+  box-shadow: var(--neumorphic-button-shadow);
+  transition: all 0.2s ease-in-out;
+  font-weight: 700;
+  color: var(--primary-color);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.neumorphic-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 10px 10px 20px #d4d7da, -10px -10px 20px #ffffff;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.neumorphic-button:active {
+  transform: translateY(1px);
+  box-shadow: var(--neumorphic-button-shadow-pressed);
+}
+
+.clay-card {
+  background-color: var(--background-color);
+  border-radius: var(--clay-border-radius);
+  padding: 2rem;
+  box-shadow: var(--clay-shadow-outer);
 }
 
 /* Typography */
