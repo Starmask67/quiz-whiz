@@ -5,7 +5,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import PillNav from './components/PillNav';
+import PillNav from './components/PillNavClient';
 
 const inter = Inter({ subsets: ["latin"] });
 
