@@ -1,0 +1,34 @@
+.scroll-stack-scroller {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll-stack-inner {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scroll-stack-inner::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-stack-card {
+  position: relative;
+  z-index: 1;
+  will-change: transform, filter;
+  transform-origin: top center;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+}
+
+.scroll-stack-end {
+  height: 100vh;
+  width: 100%;
+}

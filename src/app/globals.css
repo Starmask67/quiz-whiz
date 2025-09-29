@@ -1,21 +1,40 @@
-/* Modern Professional Design System for Quiz Whiz */
+/* Claymorphism Design System for Quiz Whiz */
 
 /* CSS Custom Properties for consistent theming */
 :root {
-  /* Clay Design System Variables */
-  --clay-lavender: #e6e0f8;
-  --clay-mint: #d8f3dc;
-  --clay-baby-blue: #d6eaff;
-  --background-color: #f7f9fc;
-  --text-primary: #2d3748;
-  --text-secondary: #5a6b82;
-  --primary-color: #8b94f9;
-  --secondary-color: #a7f3d0;
-  --clay-border-radius: 1.5rem;
-  --clay-shadow-inner: inset 8px 8px 16px #e3e6e9, inset -8px -8px 16px #ffffff;
-  --clay-shadow-outer: 9px 9px 18px #e3e6e9, -9px -9px 18px #ffffff;
-  --neumorphic-button-shadow: 6px 6px 12px #d4d7da, -6px -6px 12px #ffffff;
-  --neumorphic-button-shadow-pressed: inset 6px 6px 12px #d4d7da, inset -6px -6px 12px #ffffff;
+  /* Claymorphism Design System Variables */
+  --clay-lavender: #e6d7ff;
+  --clay-mint: #d4f1d4;
+  --clay-baby-blue: #d1e7ff;
+  --clay-peach: #ffe4d6;
+  --clay-rose: #ffe0e6;
+  --clay-lilac: #f0e6ff;
+  --clay-sage: #e8f5e8;
+  --clay-sky: #e6f3ff;
+  
+  --background-color: #f8f9ff;
+  --text-primary: #4a5568;
+  --text-secondary: #718096;
+  --primary-color: #a78bfa;
+  --secondary-color: #81e6d9;
+  --accent-color: #fbb6ce;
+  
+  /* Claymorphism Border Radius */
+  --clay-border-radius: 1.25rem;
+  --clay-border-radius-lg: 1.5rem;
+  --clay-border-radius-xl: 2rem;
+  
+  /* Claymorphism Shadows */
+  --clay-shadow-soft: 8px 8px 20px rgba(163, 163, 163, 0.15), -8px -8px 20px rgba(255, 255, 255, 0.7);
+  --clay-shadow-medium: 12px 12px 24px rgba(163, 163, 163, 0.2), -12px -12px 24px rgba(255, 255, 255, 0.8);
+  --clay-shadow-strong: 16px 16px 32px rgba(163, 163, 163, 0.25), -16px -16px 32px rgba(255, 255, 255, 0.9);
+  --clay-shadow-inner: inset 6px 6px 12px rgba(163, 163, 163, 0.1), inset -6px -6px 12px rgba(255, 255, 255, 0.8);
+  --clay-shadow-pressed: inset 8px 8px 16px rgba(163, 163, 163, 0.2), inset -8px -8px 16px rgba(255, 255, 255, 0.6);
+  
+  /* Button Shadows */
+  --clay-button-shadow: 6px 6px 12px rgba(163, 163, 163, 0.15), -6px -6px 12px rgba(255, 255, 255, 0.7);
+  --clay-button-shadow-hover: 8px 8px 16px rgba(163, 163, 163, 0.2), -8px -8px 16px rgba(255, 255, 255, 0.8);
+  --clay-button-shadow-pressed: inset 4px 4px 8px rgba(163, 163, 163, 0.2), inset -4px -4px 8px rgba(255, 255, 255, 0.6);
 
   /* Primary Color Palette - Professional Blue Theme */
   --primary-50: #eff6ff;
@@ -103,11 +122,12 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
   color: var(--text-primary);
-  background-color: #f8fafc;
+  background: linear-gradient(135deg, #f8f9ff 0%, #e6f3ff 50%, #f0e6ff 100%);
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
 }
 
 /* Modern gradient backgrounds */
@@ -177,24 +197,60 @@ body {
   background-clip: text;
 }
 
-/* Clay Design System Styles */
+/* Claymorphism Design System Styles */
 .clay-element {
   border-radius: var(--clay-border-radius);
-  box-shadow: var(--clay-shadow-outer);
-  transition: all 0.3s ease-in-out;
+  box-shadow: var(--clay-shadow-soft);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--background-color);
+}
+
+.clay-element:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--clay-shadow-medium);
 }
 
 .clay-element-inner {
   border-radius: var(--clay-border-radius);
   box-shadow: var(--clay-shadow-inner);
+  background: var(--background-color);
 }
 
-.neumorphic-button {
+/* Claymorphism Cards */
+.clay-card {
+  background: var(--background-color);
+  border-radius: var(--clay-border-radius-lg);
+  padding: 2rem;
+  box-shadow: var(--clay-shadow-soft);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.clay-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--clay-shadow-medium);
+}
+
+.clay-card-soft {
+  background: var(--clay-lavender);
+  border-radius: var(--clay-border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--clay-shadow-soft);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.clay-card-soft:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--clay-shadow-medium);
+}
+
+/* Claymorphism Buttons */
+.clay-button {
   border-radius: 50px;
-  background-color: var(--background-color);
-  box-shadow: var(--neumorphic-button-shadow);
-  transition: all 0.2s ease-in-out;
-  font-weight: 700;
+  background: var(--background-color);
+  box-shadow: var(--clay-button-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 600;
   color: var(--primary-color);
   border: none;
   cursor: pointer;
@@ -202,25 +258,286 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.neumorphic-button:hover {
+.clay-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.clay-button:hover::before {
+  left: 100%;
+}
+
+.clay-button:hover {
   transform: translateY(-2px);
-  box-shadow: 10px 10px 20px #d4d7da, -10px -10px 20px #ffffff;
+  box-shadow: var(--clay-button-shadow-hover);
   text-decoration: none;
   color: var(--primary-color);
 }
 
-.neumorphic-button:active {
-  transform: translateY(1px);
-  box-shadow: var(--neumorphic-button-shadow-pressed);
+.clay-button:active {
+  transform: translateY(0);
+  box-shadow: var(--clay-button-shadow-pressed);
 }
 
-.clay-card {
-  background-color: var(--background-color);
+/* Claymorphism Icons */
+.clay-icon {
+  width: 4rem;
+  height: 4rem;
   border-radius: var(--clay-border-radius);
-  padding: 2rem;
-  box-shadow: var(--clay-shadow-outer);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--clay-shadow-soft);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.clay-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%);
+  border-radius: var(--clay-border-radius);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.clay-icon:hover::before {
+  opacity: 1;
+}
+
+.clay-icon:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: var(--clay-shadow-medium);
+}
+
+.clay-icon-lavender {
+  background: var(--clay-lavender);
+  color: #8b5cf6;
+}
+
+.clay-icon-mint {
+  background: var(--clay-mint);
+  color: #10b981;
+}
+
+.clay-icon-baby-blue {
+  background: var(--clay-baby-blue);
+  color: #3b82f6;
+}
+
+.clay-icon-peach {
+  background: var(--clay-peach);
+  color: #f59e0b;
+}
+
+.clay-icon-rose {
+  background: var(--clay-rose);
+  color: #ec4899;
+}
+
+.clay-icon-lilac {
+  background: var(--clay-lilac);
+  color: #a855f7;
+}
+
+/* Claymorphism Hero Section */
+.clay-hero {
+  background: linear-gradient(135deg, var(--clay-lavender) 0%, var(--clay-baby-blue) 50%, var(--clay-mint) 100%);
+  border-radius: var(--clay-border-radius-xl);
+  padding: 3rem;
+  box-shadow: var(--clay-shadow-strong);
+  position: relative;
+  overflow: hidden;
+}
+
+.clay-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+/* Claymorphism Feature Cards */
+.clay-feature-card {
+  background: var(--background-color);
+  border-radius: var(--clay-border-radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--clay-shadow-soft);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.clay-feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.clay-feature-card:hover::before {
+  opacity: 1;
+}
+
+.clay-feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--clay-shadow-strong);
+}
+
+/* Claymorphism CTA Section */
+.clay-cta {
+  background: linear-gradient(135deg, var(--clay-mint) 0%, var(--clay-sage) 50%, var(--clay-sky) 100%);
+  border-radius: var(--clay-border-radius-xl);
+  padding: 3rem;
+  box-shadow: var(--clay-shadow-strong);
+  position: relative;
+  overflow: hidden;
+}
+
+.clay-cta::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -30%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* Claymorphism Text Effects */
+.clay-text-gradient {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* Claymorphism Animations */
+@keyframes clayBounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+.clay-bounce {
+  animation: clayBounce 2s infinite;
+}
+
+@keyframes clayWiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(1deg); }
+  75% { transform: rotate(-1deg); }
+}
+
+.clay-wiggle {
+  animation: clayWiggle 3s ease-in-out infinite;
+}
+
+/* Scroll Stack Animation Styles */
+.scroll-features {
+  height: auto;
+  min-height: 100vh;
+}
+
+.scroll-features .scroll-stack-scroller {
+  height: auto;
+  min-height: 100vh;
+}
+
+.scroll-features .scroll-stack-inner {
+  height: auto;
+  min-height: 100vh;
+}
+
+.scroll-features .scroll-stack-card {
+  margin-bottom: 2rem;
+  will-change: transform, filter;
+  transform-origin: top center;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+}
+
+/* Enhanced Claymorphism Effects */
+.clay-feature-card {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.clay-hero {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.clay-cta {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Responsive Claymorphism */
+@media (max-width: 768px) {
+  .clay-hero {
+    padding: 2rem;
+  }
+  
+  .clay-feature-card {
+    padding: 1.5rem;
+  }
+  
+  .clay-cta {
+    padding: 2rem;
+  }
+  
+  .clay-icon {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .clay-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 }
 
 /* Typography */
