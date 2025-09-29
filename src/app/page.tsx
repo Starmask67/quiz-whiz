@@ -47,7 +47,7 @@ export default function Home() {
               stackPosition="25%"
               scaleEndPosition="10%"
               baseScale={0.85}
-              rotationAmount={1.5}
+              rotationAmount={0}
               blurAmount={0.8}
             >
               {/* WhatsApp Integration */}

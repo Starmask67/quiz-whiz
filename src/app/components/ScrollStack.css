@@ -26,7 +26,7 @@
 }
 
 .scroll-stack-end {
-  height: 50vh;
+  height: 80vh; /* extra space so last pin releases smoothly */
   width: 100%;
   pointer-events: none;
 }

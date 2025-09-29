@@ -74,6 +74,7 @@
 .pill:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  color: var(--hover-text); /* change text color on hover */
 }
 
 .pill.is-active {
