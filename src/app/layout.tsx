@@ -5,7 +5,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Navbar from './components/Navbar';
+import PillNav from './components/PillNav';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -38,7 +38,22 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <Navbar />
+        <PillNav
+          logo="/logo.svg"
+          logoAlt="Quiz Whiz Logo"
+          items={[
+            { label: 'Home', href: '/' },
+            { label: 'Admin', href: '/admin/dashboard' },
+            { label: 'Teacher', href: '/teacher/dashboard' },
+            { label: 'Student', href: '/student-dashboard' },
+            { label: 'Settings', href: '/settings' },
+            { label: 'Contact', href: '/contact' }
+          ]}
+          baseColor="#f8f9ff"
+          pillColor="#a78bfa"
+          hoveredPillTextColor="#ffffff"
+          pillTextColor="#4a5568"
+        />
         <main>{children}</main>
       </body>
     </html>

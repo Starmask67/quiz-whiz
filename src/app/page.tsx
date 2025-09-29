@@ -31,43 +31,26 @@ export default function Home() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold clay-text-gradient mb-6">
-                How Whiz Wizard Boosts Your Brainpower
+                QuizWhiz Features
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Discover a new way to learn that's effective, convenient, and perfectly fits into your daily routine.
+                Discover the powerful features that make QuizWhiz the perfect learning companion.
               </p>
             </div>
             
             <ScrollStack 
               className="scroll-features"
               useWindowScroll={true}
-              itemDistance={120}
-              itemScale={0.05}
-              itemStackDistance={40}
-              stackPosition="30%"
-              scaleEndPosition="15%"
-              baseScale={0.8}
-              rotationAmount={2}
-              blurAmount={1}
+              itemDistance={150}
+              itemScale={0.03}
+              itemStackDistance={50}
+              stackPosition="25%"
+              scaleEndPosition="10%"
+              baseScale={0.85}
+              rotationAmount={1.5}
+              blurAmount={0.8}
             >
-              {/* Personalized Learning Paths */}
-              <ScrollStackItem>
-                <div className="clay-feature-card text-center">
-                  <div className="clay-icon clay-icon-lavender mb-6 mx-auto clay-bounce">
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                    Personalized Learning Paths
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    AI adapts to your learning style and pace, creating custom study paths that help you master topics faster and more effectively.
-                  </p>
-                </div>
-              </ScrollStackItem>
-
-              {/* Learn on the Go */}
+              {/* WhatsApp Integration */}
               <ScrollStackItem>
                 <div className="clay-feature-card text-center">
                   <div className="clay-icon clay-icon-mint mb-6 mx-auto clay-bounce">
@@ -76,28 +59,76 @@ export default function Home() {
                     </svg>
                   </div>
                   <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                    Learn on the Go
+                    WhatsApp Integration
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Access quizzes anytime, anywhere through WhatsApp. Turn your commute, breaks, or free time into productive learning moments.
+                  <p className="text-gray-600 leading-relaxed mb-4">
+                    Meet students where they are! No new apps to install, no complex setups required.
                   </p>
+                  <ul className="text-left space-y-2">
+                    <li className="flex items-center text-gray-600">
+                      <span className="text-green-500 mr-2">✓</span>
+                      Familiar platform everyone knows
+                    </li>
+                    <li className="flex items-center text-gray-600">
+                      <span className="text-green-500 mr-2">✓</span>
+                      Instant notifications & delivery
+                    </li>
+                  </ul>
                 </div>
               </ScrollStackItem>
 
-              {/* See Your Progress Soar */}
+              {/* Student Benefits */}
               <ScrollStackItem>
                 <div className="clay-feature-card text-center">
                   <div className="clay-icon clay-icon-baby-blue mb-6 mx-auto clay-bounce">
                     <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
                     </svg>
                   </div>
                   <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                    See Your Progress Soar
+                    Student Benefits
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Track your improvement with detailed analytics and instant feedback. Watch your confidence and grades rise with every quiz.
+                  <p className="text-gray-600 leading-relaxed mb-4">
+                    Transform learning into an engaging, interactive experience that students love.
                   </p>
+                  <ul className="text-left space-y-2">
+                    <li className="flex items-center text-gray-600">
+                      <span className="text-green-500 mr-2">✓</span>
+                      Instant feedback & learning
+                    </li>
+                    <li className="flex items-center text-gray-600">
+                      <span className="text-green-500 mr-2">✓</span>
+                      Gamified quiz experience
+                    </li>
+                  </ul>
+                </div>
+              </ScrollStackItem>
+
+              {/* For Institutions */}
+              <ScrollStackItem>
+                <div className="clay-feature-card text-center">
+                  <div className="clay-icon clay-icon-peach mb-6 mx-auto clay-bounce">
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                    For Institutions
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed mb-4">
+                    Streamline assessment and track progress with powerful analytics and insights.
+                  </p>
+                  <ul className="text-left space-y-2">
+                    <li className="flex items-center text-gray-600">
+                      <span className="text-green-500 mr-2">✓</span>
+                      Automated assessment system
+                    </li>
+                    <li className="flex items-center text-gray-600">
+                      <span className="text-green-500 mr-2">✓</span>
+                      Real-time progress tracking
+                    </li>
+                  </ul>
                 </div>
               </ScrollStackItem>
             </ScrollStack>

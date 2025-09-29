@@ -1,19 +1,15 @@
 .scroll-stack-scroller {
-  height: 100vh;
-  overflow: hidden;
+  height: auto;
+  min-height: 100vh;
+  overflow: visible;
   position: relative;
 }
 
 .scroll-stack-inner {
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.scroll-stack-inner::-webkit-scrollbar {
-  display: none;
+  height: auto;
+  min-height: 100vh;
+  overflow: visible;
+  position: relative;
 }
 
 .scroll-stack-card {
@@ -26,9 +22,11 @@
   -webkit-transform: translateZ(0);
   perspective: 1000px;
   -webkit-perspective: 1000px;
+  margin-bottom: 2rem;
 }
 
 .scroll-stack-end {
-  height: 100vh;
+  height: 50vh;
   width: 100%;
+  pointer-events: none;
 }

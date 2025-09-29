@@ -475,21 +475,24 @@ body {
 /* Scroll Stack Animation Styles */
 .scroll-features {
   height: auto;
-  min-height: 100vh;
+  min-height: 80vh;
+  position: relative;
 }
 
 .scroll-features .scroll-stack-scroller {
   height: auto;
-  min-height: 100vh;
+  min-height: 80vh;
+  overflow: visible;
 }
 
 .scroll-features .scroll-stack-inner {
   height: auto;
-  min-height: 100vh;
+  min-height: 80vh;
+  overflow: visible;
 }
 
 .scroll-features .scroll-stack-card {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   will-change: transform, filter;
   transform-origin: top center;
   backface-visibility: hidden;
@@ -497,6 +500,7 @@ body {
   -webkit-transform: translateZ(0);
   perspective: 1000px;
   -webkit-perspective: 1000px;
+  position: relative;
 }
 
 /* Enhanced Claymorphism Effects */
